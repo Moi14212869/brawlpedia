@@ -1,0 +1,39 @@
+{
+  "name": "FUT Esport",
+  "coach": "Ricky",
+  "logo": "https://moi14212869.github.io/brawlpedia/asset/logo_fut.png",
+  "players":[
+    {
+      "name":"Angelboy",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/Angelboy.png",
+      "nationality":"🇺🇦",
+      "joinDate":"2026/02/01",
+      "age":20
+    },
+    {
+      "name":"Guesti",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/Guesti.png",
+      "nationality":"🇺🇦",
+      "joinDate":"2026/02/01"
+    },
+    {
+      "name":"Nob?",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/Nob.png",
+      "nationality":"🇦🇲",
+      "joinDate":"2026/02/01",
+      "age":20
+    }
+  ],
+  "lastMatches": [
+    {"score": "FUT 3-0 Madrid"},
+    {"score": "FUT 3-1 Haneki Corp"},
+    {"score": "FUT 3-1 F/A Poland"},
+    {"score": "FUT 2-3 HMBLE"},
+    {"score": "FUT 3-2 Team Heretics"},
+    {"score": "FUT 3-0 F/A Keba"},
+    {"score": "FUT 3-2 NaVi"},
+    {"score": "FUT 3-0 Madrid"},
+    {"score": "FUT 3-0 F/A DJX"},
+    {"score": "FUT 3-1 HMBLE"}
+  ]
+}
