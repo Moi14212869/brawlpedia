@@ -1,40 +1,50 @@
 {
   "live": [
-    {
-      "team1": "ZETA DIVISION",
-      "team2": "SK Gaming",
-      "score": "2 - 1"
-    }
   ],
   "results": [
     {
-      "team1": "Tribe Gaming",
-      "team2": "Navi",
-      "score": "3 - 0"
+      "team1": "HMBLE",
+      "team2": "SK Gaming",
+      "score": "3 - 2"
     },
     {
       "team1": "FUT Esports",
-      "team2": "STMN",
-      "score": "2 - 3"
+      "team2": "Madrid",
+      "score": "3 - 0"
+    },
+    {
+      "team1": "Team Heretics",
+      "team2": "F/A Kebap",
+      "score": "3 - 2"
     }
   ],
   "upcoming": [
     {
-      "team1": "ZETA DIVISION",
-      "team2": "Tribe Gaming",
-      "time": "18:00"
+      "team1": "SKCALALAS",
+      "team2": "Reject",
+      "time": "11/04/2026"
     },
     {
-      "team1": "SK Gaming",
-      "team2": "FUT Esports",
-      "time": "20:00"
+      "team1": "Crazy Raccoon",
+      "team2": "Insomnia",
+      "time": "11/04/2026"
     }
   ],
 "standings": [
   {
     "region": "Europe",
     "teams": [
-      { "name": "Hmble", "record": "230" }
+      { "name": "Hmble", "record": "230" },
+      { "name": "FUT Esport", "record": "228" },
+      { "name": "Team Heretics", "record": "160" },
+      { "name": "NaVi", "record": "146" },
+      { "name": "Reply Totem", "record": "140" },
+      { "name": "SK Gaming", "record": "134" },
+      { "name": "NOVO Esport", "record": "130" },
+      { "name": "Madrid", "record": "128" },
+      { "name": "Metizport", "record": "120" },
+      { "name": "FUT Academy", "record": "120" },
+      { "name": "BIG", "record": "120" },
     ]
   },
   {
