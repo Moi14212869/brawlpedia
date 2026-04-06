@@ -4,7 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Équipe - Brawlpedia</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.go<section class="card" id="team-info">
+  <h3>ÉQUIPE: HMBLE</h3>
+  <div style="display:flex;gap:20px;align-items:center;margin-top:10px">
+    <img src="https://moi14212869.github.io/brawlpedia/asset/logo_hmb.png" alt="Logo HMBLE" style="width:80px;height:80px;border-radius:12px">
+    <div>
+      <div>Coach: Canaan</div>
+      <div>Coupe du monde gagnée: 2024</div>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="players" style="margin-top:16px">
+  <h3>JOUERS</h3>
+  <div id="players-list"></div>
+</section>
+
+<script>
+fetch('team_hmble.json')
+.then(r => r.json())
+.then(team => {
+  const playersDiv = document.getElementById('players-list');
+  playersDiv.innerHTML = '';
+  
+  team.players.forEach(p => {
+    const d = document.createElement('div');
+    d.style.display = 'flex';
+    d.style.gap = '14px';
+    d.style.alignItems = 'center';
+    d.style.marginBottom = '12px';
+    d.innerHTML = `
+      <img src="${p.img}" alt="${p.name}" style="width:60px;height:60px;border-radius:12px">
+      <div>
+        <div><strong>${p.name}</strong> ${p.nationality || ""}</div>
+        <div>Âge: ${p.age || "—"}</div>
+        <div>Arrivé: ${p.joinDate || "—"}</div>
+        <div>Trophées: ${p.trophies || 0}</div>
+        <div>Brawler préféré: ${p.favoriteBrawler || "—"}</div>
+        <div>Nourriture préférée: ${p.favoriteFood || "—"}</div>
+      </div>
+    `;
+    playersDiv.appendChild(d);
+  });
+
+  // Last matches
+  const matchesDiv = document.createElement('div');
+  matchesDiv.style.marginTop = '16px';
+  matchesDiv.innerHTML = `<h4>Derniers matchs</h4>` + team.lastMatches.map(m=>`<div>${m.date} - ${m.score}</div>`).join('');
+  playersDiv.appendChild(matchesDiv);
+});
+</script>ogleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#05070A;--panel:#0D1117;--panel-2:#161B22;--border:#1F2933;--yellow:#FFC72C;}
 *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
