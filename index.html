@@ -250,15 +250,42 @@
       }
 
       // 🟡 STANDINGS
-      st.innerHTML='';
-      if(j.standings){
-        j.standings.forEach((t,idx)=>{
-          const d=document.createElement('div'); d.className='row';
-          d.innerHTML=`<span>${idx+1}</span><span>${t.name}</span><span>${t.record}</span>`;
-          st.appendChild(d);
-        });
-      }
+st.innerHTML='';
+
+const flags = {
+  "Europe": "🇪🇺",
+  "Asie": "🌏",
+  "Amérique du Nord": "🇺🇸",
+  "Amérique du Sud": "🇧🇷"
+};
+
+if(j.standings){
+  j.standings.forEach(region=>{
+
+    // 🏷️ titre région
+    const title = document.createElement('div');
+    title.style.marginTop = '12px';
+    title.style.marginBottom = '6px';
+    title.style.fontWeight = '700';
+    title.style.color = '#FFC72C';
+    title.textContent = (flags[region.region] || "🌍") + " " + region.region;
+
+    st.appendChild(title);
+
+    // 📊 équipes
+    region.teams.forEach((t, idx)=>{
+      const d = document.createElement('div');
+      d.className = 'row';
+      d.innerHTML = `
+        <span>${idx+1}</span>
+        <span>${t.name}</span>
+        <span>${t.record}</span>
+      `;
+      st.appendChild(d);
     });
+
+  });
+}
 
     fetch('news.json').then(r=>r.json()).then(j=>{
       const n=document.getElementById('news'); n.innerHTML='';
