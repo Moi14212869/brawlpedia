@@ -81,12 +81,17 @@ fetch(teamFile)
     document.getElementById("team-logo").src = teamData.logo;
 
     // Coupes du Monde
-    const wcContainer = document.getElementById("team-worldcups");
-    teamData.worldCups.forEach(year => {
-      const span = document.createElement("span");
-      span.textContent = "🏆 " + year;
-      wcContainer.appendChild(span);
-    });
+const wcContainer = document.getElementById("team-worldcups");
+
+if (Array.isArray(teamData.worldCups) && teamData.worldCups.length > 0) {
+  teamData.worldCups.forEach(year => {
+    const span = document.createElement("span");
+    span.textContent = "🏆 " + year;
+    wcContainer.appendChild(span);
+  });
+} else {
+  wcContainer.style.display = "none"; // cache complètement la section
+}
 
     // Joueurs
     const playersContainer = document.getElementById("players");
