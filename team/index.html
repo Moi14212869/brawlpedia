@@ -28,7 +28,23 @@
 .player-card img{max-width:100px;height:auto;margin-bottom:8px;}
 .player-card .player-info{margin-top:6px;text-align:left}
 .player-card .player-info div{margin-bottom:4px}
+/* Bouton */
+.back-button{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:10px 16px;
+  background:var(--yellow);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:10px;
+  transition:0.2s;
+}
 
+.back-button:hover{
+  background:#ffd95e;
+  transform:translateY(-1px);
+}
 /* Matchs */
 .match{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff12;font-size:14px}
 .match:last-child{border-bottom:none}
@@ -41,6 +57,7 @@
 </style>
 </head>
 <body>
+<a href="https://moi14212869.github.io/brawlpedia/" class="back-button">←</a>
 <div class="container">
   <!-- Header équipe -->
   <div class="team-header">
