@@ -160,24 +160,31 @@
     let searchData = [];
     fetch('search.json').then(r=>r.json()).then(j=>searchData=j);
 
-    const sInput = document.getElementById('search');
-    const sBox = document.getElementById('suggestions');
-    sInput.addEventListener('input', ()=>{
-      const v = sInput.value.toLowerCase();
-      sBox.innerHTML='';
-      if(!v) return;
-      searchData.filter(i=>i.name.toLowerCase().includes(v)).forEach(i=>{
-        const d=document.createElement('div');d.className='suggestion';d.textContent=i.name;
-        d.onclick=()=>location.href=i.link; sBox.appendChild(d);
-      });
-    });
-    sInput.addEventListener('keypress',e=>{
-      if(e.key==='Enter'){
-        const v=sInput.value.toLowerCase();
-        const f=searchData.find(i=>i.name.toLowerCase()===v);
-        if(f) location.href=f.link;
-      }
-    });
+const sInput = document.getElementById('search');
+const sBox = document.getElementById('suggestions');
+
+sInput.addEventListener('input', () => {
+  const v = sInput.value.toLowerCase();
+  sBox.innerHTML = '';
+  if (!v) return;
+  
+  searchData.filter(i => i.name.toLowerCase().includes(v)).forEach(i => {
+    const d = document.createElement('div');
+    d.className = 'suggestion';
+    d.textContent = i.name;
+    // Ouvre la page team avec le bon JSON
+    d.onclick = () => location.href = `./team/index.html?team=${i.jsonFile}`;
+    sBox.appendChild(d);
+  });
+});
+
+sInput.addEventListener('keypress', e => {
+  if (e.key === 'Enter') {
+    const v = sInput.value.toLowerCase();
+    const f = searchData.find(i => i.name.toLowerCase() === v);
+    if (f) location.href = `./team/index.html?team=${f.jsonFile}`;
+  }
+});
 
     // DATA
     fetch('matches.json').then(r=>r.json()).then(j=>{
