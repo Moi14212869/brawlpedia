@@ -49,9 +49,19 @@
   },
   {
     "region": "Asie",
-    "teams": [
-      { "name": "CR", "record": "5-0" }
-    ]
+  "teams": [
+    { "name": "ZETA DIVISION", "record": "194" },
+    { "name": "CRAZY RACCOON", "record": "164" },
+    { "name": "FENNEL", "record": "128" },
+    { "name": "SKCALALAS", "record": "124" },
+    { "name": "RIVAL ESPORTS", "record": "118" },
+    { "name": "REJECT", "record": "108" },
+    { "name": "FEASIBLE GAMING", "record": "94" },
+    { "name": "INSOMNIA", "record": "92" },
+    { "name": "FRENZY", "record": "68" },
+    { "name": "RAGEBAIT ONLY", "record": "66" },
+    { "name": "KCN", "record": "64" }
+  ]
   }
 ]
 }
