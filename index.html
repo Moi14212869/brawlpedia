@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Brawlpedia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0D1117, #05070A);
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #1F2933;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFC72C;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #AAB2BD;
+      font-weight: 600;
+    }
+
+    nav a:hover { color: white; }
+
+    .container {
+      padding: 40px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0D47A1, #1F6FEB);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin: 0 0 10px 0;
+    }
+
+    .search-box {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    input {
+      padding: 14px;
+      width: 350px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      background: #0D1117;
+      color: white;
+      outline: none;
+      border: 1px solid #30363D;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 50px;
+      width: 100%;
+      background: #161B22;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      z-index: 10;
+    }
+
+    .suggestion {
+      padding: 12px;
+      cursor: pointer;
+      border-bottom: 1px solid #30363D;
+    }
+
+    .suggestion:hover {
+      background: #1F6FEB;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #161B22;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    .live {
+      border-left: 5px solid red;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #FFC72C;
+    }
+
+    .match {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #30363D;
+    }
+
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #30363D;
+      font-size: 14px;
+    }
+
+    .tag {
+      color: #1F6FEB;
+      font-weight: 600;
+      margin-right: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">BRAWLPEDIA</div>
+  <nav>
+    <a href="#">Matchs</a>
+    <a href="#">Teams</a>
+    <a href="#">Classements</a>
+    <a href="#">Joueurs</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div class="hero">
+    <div>
+      <h1>Brawl Stars Esport Hub</h1>
+      <p>Matchs, équipes et joueurs en temps réel</p>
+
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Rechercher joueur ou équipe...">
+        <div id="suggestions" class="suggestions"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card live">
+      <h3>🔥 Match en direct</h3>
+      <div id="liveMatch">Chargement...</div>
+    </div>
+
+    <div class="card">
+      <h3>📰 Infos récentes</h3>
+      <div id="news"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+let data = [];
+
+fetch('search.json')
+  .then(res => res.json())
+  .then(json => data = json);
+
+fetch('news.json')
+  .then(res => res.json())
+  .then(json => {
+    const newsDiv = document.getElementById('news');
+    json.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'news-item';
+      div.innerHTML = `<span class="tag">${item.type}</span> ${item.title}`;
+      newsDiv.appendChild(div);
+    });
+  });
+
+fetch('matches.json')
+  .then(res => res.json())
+  .then(json => {
+    const liveDiv = document.getElementById('liveMatch');
+    liveDiv.innerHTML = '';
+    json.forEach(match => {
+      const div = document.createElement('div');
+      div.className = 'match';
+      div.innerHTML = `${match.team1} <strong>${match.score}</strong> ${match.team2}`;
+      liveDiv.appendChild(div);
+    });
+  });
+
+const searchInput = document.getElementById('search');
+const suggestionsDiv = document.getElementById('suggestions');
+
+searchInput.addEventListener('input', () => {
+  const value = searchInput.value.toLowerCase();
+  suggestionsDiv.innerHTML = '';
+
+  if (!value) return;
+
+  const filtered = data.filter(item =>
+    item.name.toLowerCase().includes(value)
+  );
+
+  filtered.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'suggestion';
+    div.textContent = item.name;
+
+    div.onclick = () => {
+      window.location.href = item.link;
+    };
+
+    suggestionsDiv.appendChild(div);
+  });
+});
+
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const value = searchInput.value.toLowerCase();
+    const found = data.find(item => item.name.toLowerCase() === value);
+    if (found) window.location.href = found.link;
+  }
+});
+</script>
+
+</body>
+</html>
