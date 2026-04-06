@@ -1,0 +1,40 @@
+{
+  "name": "Reply Totem",
+  "coach": "DaaNTz",
+  "logo": "https://moi14212869.github.io/brawlpedia/asset/logo_ttm.png",
+  "players":[
+    {
+      "name":"Maru",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/Maru.png",
+      "nationality":"🇮🇹",
+      "joinDate":"2021/01/27",
+      "age":22
+    },
+    {
+      "name":"Maury",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/Maury.png",
+      "nationality":"🇮🇹",
+      "joinDate":"2021/01/27",
+      "age":22
+    },
+    {
+      "name":"Joker",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/Joker.png",
+      "nationality":"🇩🇪",
+      "joinDate":"2026/01/22",
+      "age":20
+    }
+  ],
+  "lastMatches": [
+    {"score": "HMBLE 3-2 SK Gaming"},
+    {"score": "HMBLE 3-0 Forza Esports"},
+    {"score": "HMBLE 3-0 ZKA"},
+    {"score": "FUT 2-3 HMBLE"},
+    {"score": "HMBLE 3-2 NOVO Esports"},
+    {"score": "HMBLE 3-0 Madrid"},
+    {"score": "HMBLE 3-0 BIG"},
+    {"score": "HMBLE 3-2 Zenith Esports"},
+    {"score": "HMBLE 3-0 F/A Kalik"},
+    {"score": "FUT 3-1 HMBLE"}
+  ]
+}
