@@ -114,7 +114,13 @@
     </aside>
 
     <main>
-
+        <div class="topbar">
+        <div class="tabs">
+          <a href="#match">Matches</a>
+          <a href="#event">Events</a>
+          <a href="#rank">Rankings</a>
+        </div>
+      </div>
       <section class="hero">
           <div class="search-wrap">
             <input id="search" class="search" placeholder="Rechercher joueur ou équipe..." />
@@ -125,14 +131,14 @@
       </section>
 
       <section class="grid">
-        <div class="card">
+        <div class="card" id="match">
           <h3>LIVE MATCH <span class="live-badge">LIVE</span></h3>
           <div id="live"></div>
           <h3 style="margin-top:14px">RECENT RESULTS</h3>
           <div id="results"></div>
         </div>
 
-        <div class="card">
+        <div class="card" id="rank">
           <h3>UPCOMING</h3>
           <div id="upcoming"></div>
           <h3 style="margin-top:14px">STANDINGS</h3>
@@ -140,7 +146,7 @@
         </div>
       </section>
 
-      <section class="card" style="margin-top:16px">
+      <section class="card" style="margin-top:16px" id="event">
         <h3>INFOS RÉCENTES</h3>
         <div id="news"></div>
       </section>
