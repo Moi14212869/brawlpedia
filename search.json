@@ -10,5 +10,9 @@
   {
     "name": "crazy raccoon",
     "jsonFile": "cr.json"
+  },
+  {
+    "name": "reply totem",
+    "jsonFile": "ttm.json"
   }
 ]
