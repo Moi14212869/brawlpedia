@@ -6,5 +6,9 @@
   {
     "name": "fut",
     "jsonFile": "fut.json"
+  },
+  {
+    "name": "crazy raccoon",
+    "jsonFile": "cr.json"
   }
 ]
