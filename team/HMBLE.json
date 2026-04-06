@@ -9,33 +9,33 @@
       "img":"https://moi14212869.github.io/brawlpedia/asset/Lukii.png",
       "nationality":"🇩🇪",
       "joinDate":"2023/06/09",
-      "trophies":103500,
       "age":19,
-      "favoriteBrawler":"Max",
-      "favoriteFood":"Kebab"
     },
     {
       "name":"BosS",
       "img":"https://moi14212869.github.io/brawlpedia/asset/BosS.png",
       "nationality":"🇪🇸",
       "joinDate":"2024/03/08",
-      "trophies":99947,
       "age":23,
-      "favoriteBrawler":"Carl",
-      "favoriteFood":"Sushi"
     },
     {
       "name":"Symantec",
       "img":"https://moi14212869.github.io/brawlpedia/asset/Symantec.png",
       "nationality":"🇩🇪",
       "joinDate":"2024/03/08",
-      "trophies":27500,
       "age":23,
-      "favoriteBrawler":"Stu",
-      "favoriteFood":"Döner"
     }
   ],
-  "lastMatches":[
-    {"score":"HMBLE 3-2 SK Gaming","date":"06/04/2026"}
+  "lastMatches": [
+    {"score": "HMBLE 3-2 SK Gaming"},
+    {"score": "HMBLE 3-0 Forza Esports"},
+    {"score": "HMBLE 3-0 ZKA"},
+    {"score": "FUT 2-3 HMBLE"},
+    {"score": "HMBLE 3-2 NOVO Esports"},
+    {"score": "HMBLE 3-0 Madrid"},
+    {"score": "HMBLE 3-0 BIG"},
+    {"score": "HMBLE 3-2 Zenith Esports"},
+    {"score": "HMBLE 3-0 F/A Kalik"},
+    {"score": "FUT 3-1 HMBLE"}
   ]
 }
