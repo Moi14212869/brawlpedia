@@ -6,36 +6,38 @@
 <title>Équipe - Brawlpedia</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#05070A;--panel:#0D1117;--panel-2:#161B22;--border:#1F2933;--yellow:#FFC72C;}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
-  .container{max-width:1200px;margin:0 auto;padding:20px}
+:root{--bg:#05070A;--panel:#0D1117;--panel-2:#161B22;--border:#1F2933;--yellow:#FFC72C;}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
+.container{max-width:1200px;margin:0 auto;padding:20px}
 
-  /* Header équipe */
-  .team-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
-  .team-logo img{width:80px;height:80px;border-radius:16px;object-fit:cover;}
-  .team-info h1{margin:0;font-size:28px} 
-  .team-info p{margin:4px 0;color:#E6EDF3;font-size:14px}
-  .trophies{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;margin-top:8px}
-  .trophies span{background:#0004;border:1px solid #ffffff22;padding:4px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+/* Header équipe */
+.team-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.team-logo img{width:80px;height:80px;border-radius:16px;object-fit:cover;}
+.team-info h1{margin:0;font-size:28px} 
+.team-info p{margin:4px 0;color:#E6EDF3;font-size:14px}
+.trophies{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;margin-top:8px}
+.trophies span{background:#0004;border:1px solid #ffffff22;padding:4px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
 
-  /* Sections */
-  .section{background:var(--panel-2);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:20px;box-shadow:0 10px 30px #0006}
-  .section h3{margin:0 0 12px 0;color:var(--yellow);font-size:16px;letter-spacing:.08em}
+/* Sections */
+.section{background:var(--panel-2);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:20px;box-shadow:0 10px 30px #0006}
+.section h3{margin:0 0 12px 0;color:var(--yellow);font-size:16px;letter-spacing:.08em}
 
-  /* Joueurs */
-  .players{display:flex;gap:16px;flex-wrap:wrap}
-  .player-card{background:var(--panel);border-radius:12px;padding:12px;flex:1 1 120px;text-align:center}
-  .player-card img{width:60px;height:60px;border-radius:50%;margin-bottom:8px;object-fit:cover}
+/* Joueurs */
+.players{display:flex;gap:16px;flex-wrap:wrap}
+.player-card{background:var(--panel);border-radius:12px;padding:12px;flex:1 1 180px;text-align:center;font-size:14px}
+.player-card img{width:60px;height:60px;border-radius:50%;margin-bottom:8px;object-fit:cover}
+.player-card .player-info{margin-top:6px;text-align:left}
+.player-card .player-info div{margin-bottom:4px}
 
-  /* Matchs */
-  .match{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff12;font-size:14px}
-  .match:last-child{border-bottom:none}
+/* Matchs */
+.match{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff12;font-size:14px}
+.match:last-child{border-bottom:none}
 
-  /* Responsive */
-  @media(max-width:768px){
-    .team-header{flex-direction:column;align-items:flex-start}
-    .players{justify-content:center}
-  }
+/* Responsive */
+@media(max-width:768px){
+  .team-header{flex-direction:column;align-items:flex-start}
+  .players{justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -64,51 +66,59 @@
 </div>
 
 <script>
-  // Fonction pour récupérer le paramètre "team" dans l'URL
-  function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-  }
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
 
-  const teamFile = getQueryParam("team") || "etoiles.json"; // défaut
-  fetch(teamFile)
-    .then(res => res.json())
-    .then(teamData => {
-      // Remplir les infos de l'équipe
-      document.getElementById("team-name").textContent = teamData.name;
-      document.getElementById("team-coach").textContent = "Coach: " + teamData.coach;
-      document.getElementById("team-logo").src = teamData.logo;
+const teamFile = getQueryParam("team") || "etoiles.json";
+fetch(teamFile)
+  .then(res => res.json())
+  .then(teamData => {
+    // Infos équipe
+    document.getElementById("team-name").textContent = teamData.name;
+    document.getElementById("team-coach").textContent = "Coach: " + teamData.coach;
+    document.getElementById("team-logo").src = teamData.logo;
 
-      // Coupes du Monde
-      const wcContainer = document.getElementById("team-worldcups");
-      teamData.worldCups.forEach(year => {
-        const span = document.createElement("span");
-        span.textContent = "🏆 " + year;
-        wcContainer.appendChild(span);
-      });
-
-      // Joueurs
-      const playersContainer = document.getElementById("players");
-      teamData.players.forEach(p => {
-        const div = document.createElement("div");
-        div.className = "player-card";
-        div.innerHTML = `<img src="${p.img}" alt="${p.name}"><div>${p.name}</div>`;
-        playersContainer.appendChild(div);
-      });
-
-      // Derniers matchs
-      const matchesContainer = document.getElementById("last-matches");
-      teamData.lastMatches.forEach(m => {
-        const div = document.createElement("div");
-        div.className = "match";
-        div.innerHTML = `<span>${m.score}</span><span>${m.date}</span>`;
-        matchesContainer.appendChild(div);
-      });
-    })
-    .catch(err => {
-      console.error("Erreur chargement JSON:", err);
-      alert("Impossible de charger les données de l'équipe.");
+    // Coupes du Monde
+    const wcContainer = document.getElementById("team-worldcups");
+    teamData.worldCups.forEach(year => {
+      const span = document.createElement("span");
+      span.textContent = "🏆 " + year;
+      wcContainer.appendChild(span);
     });
+
+    // Joueurs
+    const playersContainer = document.getElementById("players");
+    teamData.players.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "player-card";
+      div.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <div class="player-info">
+          <div><strong>${p.name}</strong> ${p.nationality || ""}</div>
+          <div>Arrivé: ${p.joinDate || ""}</div>
+          <div>Trophées: ${p.trophies || 0}</div>
+          <div>Brawler préféré: ${p.favoriteBrawler || "—"}</div>
+          <div>Nourriture préférée: ${p.favoriteFood || "—"}</div>
+        </div>
+      `;
+      playersContainer.appendChild(div);
+    });
+
+    // Derniers matchs
+    const matchesContainer = document.getElementById("last-matches");
+    teamData.lastMatches.forEach(m => {
+      const div = document.createElement("div");
+      div.className = "match";
+      div.innerHTML = `<span>${m.score}</span><span>${m.date}</span>`;
+      matchesContainer.appendChild(div);
+    });
+  })
+  .catch(err => {
+    console.error("Erreur chargement JSON:", err);
+    alert("Impossible de charger les données de l'équipe.");
+  });
 </script>
 </body>
 </html>
