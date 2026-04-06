@@ -1,0 +1,47 @@
+{
+  "live": [
+    {
+      "team1": "ZETA DIVISION",
+      "team2": "SK Gaming",
+      "score": "2 - 1"
+    }
+  ],
+  "results": [
+    {
+      "team1": "Tribe Gaming",
+      "team2": "Navi",
+      "score": "3 - 0"
+    },
+    {
+      "team1": "FUT Esports",
+      "team2": "STMN",
+      "score": "2 - 3"
+    }
+  ],
+  "upcoming": [
+    {
+      "team1": "ZETA DIVISION",
+      "team2": "Tribe Gaming",
+      "time": "18:00"
+    },
+    {
+      "team1": "SK Gaming",
+      "team2": "FUT Esports",
+      "time": "20:00"
+    }
+  ],
+"standings": [
+  {
+    "region": "Europe",
+    "teams": [
+      { "name": "Hmble", "record": "230" }
+    ]
+  },
+  {
+    "region": "Asie",
+    "teams": [
+      { "name": "CR", "record": "5-0" }
+    ]
+  }
+]
+}
