@@ -6,21 +6,21 @@
   "players":[
     {
       "name":"Moya",
-      "img":"https://moi14212869.github.io/brawlpedia/asset/Moya.png",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/cr_Moya.png",
       "nationality":"🇯🇵",
       "joinDate":"2023/02/23",
       "age":21
     },
     {
       "name":"Tensai",
-      "img":"https://moi14212869.github.io/brawlpedia/asset/Tensai.png",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/cr_Tensai.png",
       "nationality":"🇯🇵",
       "joinDate":"2023/02/23",
       "age":25
     },
     {
       "name":"Milkreo",
-      "img":"https://moi14212869.github.io/brawlpedia/asset/Milkreo.png",
+      "img":"https://moi14212869.github.io/brawlpedia/asset/cr_Milkreo.png",
       "nationality":"🇯🇵",
       "joinDate":"2023/02/23",
       "age":25
