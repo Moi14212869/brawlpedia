@@ -1,0 +1,14 @@
+{
+  "name": "HMBLE",
+  "coach": "Canaan",
+  "logo": "https://liquipedia.net/commons/images/d/d6/Hmble_darkmode.png",
+  "worldCups": [2024],
+  "players":[
+    {"name":"Lukii","img":"https://liquipedia.net/commons/images/b/bb/HMB_Lukii_WF_2025.png"},
+    {"name":"BosS","img":"https://liquipedia.net/brawlstars/File:HMB_BosS_WF_2025.png"},
+    {"name":"Symantec","img":"https://liquipedia.net/brawlstars/File:HMB_Symantec_WF_2025.png"}
+  ],
+  "lastMatches":[
+    {"score":"HMBLE 3-2 SK Gaming","date":"06/04/2026"}
+  ]
+}
