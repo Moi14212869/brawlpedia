@@ -1,0 +1,23 @@
+{
+  "name": "Ope",
+  "realName": "Alexis Mangelle",
+  "dob": "29/09/2004",
+  "age": 21,
+  "nationality": "🇫🇷 France",
+  "position": "Joueur",
+  "teamJsonFile": "sk.json"
+  "status": "Actif",
+  "team": "SK Gaming",
+  "favoriteFood": "Pâtes carbonara",
+  "earnings": "$117,832",
+  "trophies": ["Championnat France 2022", "Coupe d'Europe 2023"],
+  "formerClubs": [
+    {"name": "Équipe A", "joinDate": "2018-01-10"},
+    {"name": "Équipe B", "joinDate": "2020-03-05"}
+  ],
+  "career": [
+    "Début professionnel en 2016",
+    "Rejoint l'équipe Étoiles en 2022"
+  ],
+  "img": "https://moi14212869.github.io/brawlpedia/asset/sk_Ope.png"
+}
