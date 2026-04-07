@@ -1,18 +1,22 @@
 [
   {
     "name": "hmble",
-    "jsonFile": "HMBLE.json"
+    "jsonFile": "HMBLE.json",
+    "type": "team"
   },
   {
     "name": "fut esport",
-    "jsonFile": "fut.json"
+    "jsonFile": "fut.json",
+    "type": "team"
   },
   {
     "name": "crazy raccoon",
-    "jsonFile": "cr.json"
+    "jsonFile": "cr.json",
+    "type": "team"
   },
   {
     "name": "reply totem",
-    "jsonFile": "ttm.json"
+    "jsonFile": "ttm.json",
+    "type": "team"
   }
 ]
