@@ -173,16 +173,30 @@ sInput.addEventListener('input', () => {
     d.className = 'suggestion';
     d.textContent = i.name;
     // Ouvre la page team avec le bon JSON
-    d.onclick = () => location.href = `./team/index.html?team=${i.jsonFile}`;
-    sBox.appendChild(d);
-  });
+d.onclick = () => {
+  const base = "https://moi14212869.github.io/brawlpedia";
+
+  if (i.type === "team") {
+    location.href = `${base}/team/index.html?team=${encodeURIComponent(i.jsonFile)}`;
+  } else if (i.type === "player") {
+    location.href = `${base}/player/index.html?player=${encodeURIComponent(i.jsonFile)}`;
+  }
+};
 });
 
 sInput.addEventListener('keypress', e => {
   if (e.key === 'Enter') {
     const v = sInput.value.toLowerCase();
     const f = searchData.find(i => i.name.toLowerCase() === v);
-    if (f) location.href = `./team/index.html?team=${f.jsonFile}`;
+    if (f) {
+  const base = "https://moi14212869.github.io/brawlpedia";
+
+  if (f.type === "team") {
+    location.href = `${base}/team/index.html?team=${encodeURIComponent(f.jsonFile)}`;
+  } else if (f.type === "player") {
+    location.href = `${base}/player/index.html?player=${encodeURIComponent(f.jsonFile)}`;
+  }
+}
   }
 });
 
