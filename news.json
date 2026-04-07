@@ -1,7 +1,22 @@
 [
   {
     "type": "EVENT",
-    "title": "Anniversaire de Zimmon - 2007 (âge : 19)",
+    "title": "Anniversaire de 🇵🇱 Zimmon - 2007 (âge : 19)",
     "time": ""
+  },
+  {
+    "type": "TRANSFERT",
+    "title": "🇵🇪 Prozy, 🇦🇷 Portox et 🇧🇷 Wesley quittent New Heights Gaming pour aller chez Bounty Hunters Esports",
+    "time": "2026/04/06"
+  },
+  {
+    "type": "TRANSFERT",
+    "title": "l'ancien analyste de New Heights Gaming 🇵🇪 Paolosigne en tant qu'analyste chez Bounty Hunters Esports",
+    "time": "2026/04/06"
+  },
+  {
+    "type": "DISBAND",
+    "title": "l'équipe New Heights Gaming crée en 2025 à été disband",
+    "time": "2026/04/06"
   }
 ]
