@@ -15,6 +15,11 @@
     "type": "team"
   },
   {
+    "name": "Team Heretics",
+    "jsonFile": "th.json",
+    "type": "team"
+  },
+  {
     "name": "SK Gaming",
     "jsonFile": "sk.json",
     "type": "team"
