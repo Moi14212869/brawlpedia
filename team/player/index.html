@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joueur - Brawlpedia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070A;
+  --panel:#0D1117;
+  --panel-2:#161B22;
+  --border:#1F2933;
+  --yellow:#FFC72C;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+/* Header joueur */
+.player-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.player-photo img{width:120px;height:auto;border-radius:16px;object-fit:cover;}
+.player-info h1{margin:0;font-size:28px} 
+.player-info div{margin:4px 0;color:#E6EDF3;font-size:14px}
+.player-info .stats{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+
+/* Trophées */
+.trophies{display:flex;gap:8px;margin-top:8px;font-size:14px}
+.trophies span{background:#0004;border:1px solid #ffffff22;padding:4px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
+
+/* Sections */
+.section{background:var(--panel-2);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:20px;box-shadow:0 10px 30px #0006}
+.section h3{margin:0 0 12px 0;color:var(--yellow);font-size:16px;letter-spacing:.08em}
+
+/* Matchs */
+.match{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff12;font-size:14px}
+.match:last-child{border-bottom:none}
+
+/* Back button */
+.back-button{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:10px 16px;
+  background:var(--yellow);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:10px;
+  transition:0.2s;
+}
+.back-button:hover{
+  background:#ffd95e;
+  transform:translateY(-1px);
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .player-header{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<a href="https://moi14212869.github.io/brawlpedia/" class="back-button">←</a>
+<div class="container">
+  <!-- Header joueur -->
+  <div class="player-header">
+    <div class="player-photo"><img id="player-photo" src="" alt="Photo joueur"></div>
+    <div class="player-info">
+      <h1 id="player-name">Nom Joueur</h1>
+      <div id="player-real-name">Prénom: —</div>
+      <div id="player-dob">Date de naissance: —</div>
+      <div id="player-team">Équipe: —</div>
+      <div class="stats">
+        <div id="player-age">Âge: —</div>
+        <div id="player-nationality">Nationalité: —</div>
+        <div id="player-position">Rôle: —</div>
+        <div id="player-status">Statut: —</div>
+        <div id="player-favorite">Plat préféré: —</div>
+        <div id="player-earnings">Argent gagné: —</div>
+        <div id="player-trophies">Trophées: 0</div>
+      </div>
+      <div class="trophies" id="player-trophies-list"></div>
+      <div id="player-former-clubs" style="margin-top:6px;font-size:14px;color:#E6EDF3"></div>
+    </div>
+  </div>
+
+  <!-- Carrière / infos -->
+  <div class="section">
+    <h3>Carrière / Infos</h3>
+    <div id="player-career"></div>
+  </div>
+
+<script>
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const playerFile = getQueryParam("player") || "default-player.json";
+
+fetch(playerFile)
+  .then(res => res.json())
+  .then(playerData => {
+    // Infos de base
+    document.getElementById("player-name").textContent = playerData.name;
+    document.getElementById("player-photo").src = playerData.img;
+    document.getElementById("player-real-name").textContent = "Prénom: " + (playerData.realName || "—");
+    document.getElementById("player-dob").textContent = "Date de naissance: " + (playerData.dob || "—");
+    const teamContainer = document.getElementById("player-team");
+if(playerData.teamJsonFile){ // Assurez-vous que le JSON contient le nom du fichier JSON de l'équipe
+  teamContainer.innerHTML = `Équipe: <a href="https://moi14212869.github.io/brawlpedia/team/index.html?team=${playerData.teamJsonFile}" style="color:#1F6FEB;text-decoration:underline">${playerData.team}</a>`;
+} else {
+  teamContainer.textContent = "Équipe: " + (playerData.team || "—");
+}
+    document.getElementById("player-age").textContent = "Âge: " + (playerData.age || "—");
+    document.getElementById("player-nationality").textContent = "Nationalité: " + (playerData.nationality || "—");
+    document.getElementById("player-position").textContent = "Position: " + (playerData.position || "—");
+    document.getElementById("player-status").textContent = "Statut: " + (playerData.status || "—");
+    document.getElementById("player-favorite").textContent = "Plat préféré: " + (playerData.favoriteFood || "—");
+    document.getElementById("player-earnings").textContent = "Argent gagné: " + (playerData.earnings || "—");
+
+    // Trophées
+    const trophiesContainer = document.getElementById("player-trophies-list");
+    if(Array.isArray(playerData.trophies) && playerData.trophies.length > 0){
+      document.getElementById("player-trophies").textContent = "Trophées: " + playerData.trophies.length;
+      playerData.trophies.forEach(t => {
+        const span = document.createElement("span");
+        span.textContent = "🏆 " + t;
+        trophiesContainer.appendChild(span);
+      });
+    } else {
+      document.getElementById("player-trophies").textContent = "Trophées: 0";
+    }
+
+    // Anciens clubs avec date de recrutement
+    if(Array.isArray(playerData.formerClubs) && playerData.formerClubs.length > 0){
+      document.getElementById("player-former-clubs").innerHTML = "Anciens clubs: " + playerData.formerClubs.map(c => `${c.name} (${c.joinDate || "—"})`).join(", ");
+    }
+
+    // Carrière / infos complémentaires
+    const careerContainer = document.getElementById("player-career");
+    if(Array.isArray(playerData.career) && playerData.career.length > 0){
+      playerData.career.forEach(item => {
+        const div = document.createElement("div");
+        div.textContent = `• ${item}`;
+        careerContainer.appendChild(div);
+      });
+    } else {
+      careerContainer.textContent = "Aucune information disponible.";
+    }
+
+  })
+  .catch(err => {
+    console.error("Erreur chargement JSON:", err);
+    alert("Impossible de charger les données du joueur.");
+  });
+</script>
+</body>
+</html>
