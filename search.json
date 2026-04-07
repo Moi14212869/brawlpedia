@@ -15,6 +15,11 @@
     "type": "team"
   },
   {
+    "name": "SK Gaming",
+    "jsonFile": "sk.json",
+    "type": "team"
+  },
+  {
     "name": "reply totem",
     "jsonFile": "ttm.json",
     "type": "team"
